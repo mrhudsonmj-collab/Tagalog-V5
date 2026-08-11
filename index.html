@@ -119,9 +119,11 @@
         <input id="voiceToken" type="password" autocomplete="off" placeholder="Enter the APP_TOKEN you set in Cloudflare" style="margin-top:5px">
 
         <div class="grid2" style="margin-top:10px">
+          <button id="checkVoiceConnection" class="secondary">✓ Check connection</button>
           <button id="loadElevenVoices" class="secondary">↻ Load my voices</button>
-          <button id="testElevenVoice" class="secondary">🔊 Test selected voice</button>
         </div>
+        <button id="testElevenVoice" class="secondary" style="margin-top:10px;width:100%">🔊 Test selected voice</button>
+        <div id="voiceDiagnostic" class="small muted" style="margin-top:10px"></div>
 
         <label class="small muted" style="display:block;margin-top:12px">ElevenLabs voice</label>
         <select id="elevenVoiceId" style="margin-top:5px">
@@ -159,7 +161,7 @@
     <div class="card dangerzone">
       <b>Reset</b><div class="grid2" style="margin-top:10px"><button id="resetProgress" class="secondary">Reset progress</button><button id="restoreStarter" class="bad">Restore starter phrases</button></div>
     </div>
-    <p class="small muted" style="text-align:center">Tagalog Trainer v5.0 · Filipino Voice</p>
+    <p class="small muted" style="text-align:center">Tagalog Trainer v5.1.0 · Filipino Voice</p>
   </section>
 </div>
 
@@ -382,10 +384,21 @@ async function loadElevenVoices(){
   const btn=$('#loadElevenVoices');
   btn.disabled=true;btn.textContent='Loading…';setVoiceStatus('Connecting…');
   try{
-    const r=await fetch(base+'/voices',{headers:{'X-Tagalog-Token':token},cache:'no-store'});
-    let data=null;try{data=await r.json()}catch{}
-    if(!r.ok)throw new Error(data?.error||`Voice list error ${r.status}`);
-    populateVoiceSelect(Array.isArray(data.voices)?data.voices:[]);
+    const voiceUrl=base+'/voices';
+    const r=await fetch(voiceUrl,{headers:{'X-Tagalog-Token':token},cache:'no-store'});
+    const raw=await r.text();
+    let data=null;
+    if(raw){
+      try{data=JSON.parse(raw)}catch{}
+    }
+    if(!r.ok){
+      const serverError=data&&data.error ? data.error : (raw ? raw.slice(0,160) : `HTTP ${r.status}`);
+      throw new Error(`Voice connection failed: ${serverError}`);
+    }
+    if(!data || !Array.isArray(data.voices)){
+      throw new Error(`Voice service returned an unexpected response from ${voiceUrl}`);
+    }
+    populateVoiceSelect(data.voices);
     setVoiceStatus(settings.elevenVoiceId?'ElevenLabs':'No voices');
     toast(settings.elevenVoiceId?'Voices loaded':'No voices found');
   }catch(e){
@@ -408,6 +421,41 @@ $('#elevenVoiceId').addEventListener('change',e=>{
   settings.elevenVoiceName=e.target.options[e.target.selectedIndex]?.textContent||'';
   persist();setVoiceStatus('ElevenLabs');
 });
+$('#checkVoiceConnection').addEventListener('click',async()=>{
+  saveVoiceConnectionFields();
+  const endpoint=settings.voiceEndpoint,token=settings.voiceToken;
+  const diag=$('#voiceDiagnostic');
+  if(!endpoint||!token){
+    diag.textContent='Enter the Worker /speak URL and APP_TOKEN first.';
+    toast('Voice URL or APP_TOKEN is missing');
+    return;
+  }
+  const base=endpoint.replace(/\/speak\/?$/,'');
+  const url=base+'/health';
+  diag.textContent='Checking '+url+' …';
+  setVoiceStatus('Checking…');
+  try{
+    const r=await fetch(url,{headers:{'X-Tagalog-Token':token},cache:'no-store'});
+    const raw=await r.text();
+    let data=null;try{data=JSON.parse(raw)}catch{}
+    if(!r.ok){
+      const msg=(data&&data.error)||raw||`HTTP ${r.status}`;
+      throw new Error(msg);
+    }
+    if(data&&data.ok){
+      diag.textContent='✅ Worker connected to ElevenLabs. Next tap “Load my voices”.';
+      setVoiceStatus('Connected');
+      toast('Voice connection OK');
+    }else{
+      throw new Error('Unexpected health response: '+raw.slice(0,160));
+    }
+  }catch(e){
+    diag.textContent='❌ '+e.message;
+    setVoiceStatus('Voice error');
+    toast(e.message);
+  }
+});
+
 $('#loadElevenVoices').addEventListener('click',loadElevenVoices);
 $('#testElevenVoice').addEventListener('click',async()=>{
   saveVoiceConnectionFields();
