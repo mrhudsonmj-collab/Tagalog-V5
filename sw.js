@@ -1,4 +1,4 @@
-const CACHE='tagalog-trainer-v53-elevenlabs';
+const CACHE='tagalog-trainer-v54-elevenlabs';
 const CORE=['./','./index.html','./app.webmanifest','./apple-touch-icon.png','./icon-192.png','./icon-512.png','./phrases.json'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

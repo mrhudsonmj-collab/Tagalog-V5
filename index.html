@@ -162,7 +162,7 @@
     <div class="card dangerzone">
       <b>Reset</b><div class="grid2" style="margin-top:10px"><button id="resetProgress" class="secondary">Reset progress</button><button id="restoreStarter" class="bad">Restore starter phrases</button></div>
     </div>
-    <p class="small muted" style="text-align:center">Tagalog Trainer v5.3.0 · Filipino Voice</p>
+    <p class="small muted" style="text-align:center">Tagalog Trainer v5.4.0 · Filipino Voice</p>
   </section>
 </div>
 
@@ -438,7 +438,7 @@ $('#checkVoiceConnection').addEventListener('click',async()=>{
   diag.textContent='Checking '+url+' …'; console.log('Tagalog Trainer voice health URL:', url);
   setVoiceStatus('Checking…');
   try{
-    const r=await fetch(url,{mode:'cors',headers:{'X-Tagalog-Token':token},cache:'no-store'});
+    const r=await fetch(url,{mode:'cors',cache:'no-store'});
     const raw=await r.text();
     let data=null;try{data=JSON.parse(raw)}catch{}
     if(!r.ok){
