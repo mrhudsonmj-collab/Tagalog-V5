@@ -1,0 +1,23 @@
+[
+  {
+    "id": "social-plus",
+    "name": "Social Plus",
+    "description": "Dates, messages and natural social phrases",
+    "file": "./packs/social-plus.json",
+    "count": 16
+  },
+  {
+    "id": "food-travel-plus",
+    "name": "Food & Travel Plus",
+    "description": "Restaurants, taxis, payments and getting around",
+    "file": "./packs/food-travel-plus.json",
+    "count": 16
+  },
+  {
+    "id": "work-everyday",
+    "name": "Work & Everyday",
+    "description": "Simple everyday and workplace conversation",
+    "file": "./packs/work-everyday.json",
+    "count": 16
+  }
+]

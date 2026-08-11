@@ -1,0 +1,897 @@
+[
+  {
+    "tagalog": "Kumusta?",
+    "english": "Hello / How are you?",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Kumusta ka?",
+    "english": "How are you?",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Mabuti",
+    "english": "Good / Fine",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Mabuti ako",
+    "english": "I’m fine",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Oo",
+    "english": "Yes",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Hindi",
+    "english": "No / Not",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Salamat",
+    "english": "Thank you",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Maraming salamat",
+    "english": "Thank you very much",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Walang anuman",
+    "english": "You’re welcome",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Pakiusap",
+    "english": "Please",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Pasensya na",
+    "english": "Sorry",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Paumanhin",
+    "english": "Excuse me / Sorry",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Po",
+    "english": "Respectful word added to a sentence",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Opo",
+    "english": "Respectful yes",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Sige",
+    "english": "Okay / Go ahead",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Ayos",
+    "english": "Fine / Good / Sorted",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Ayos lang",
+    "english": "It’s okay",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Ingat",
+    "english": "Take care",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Paalam",
+    "english": "Goodbye",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Magandang umaga",
+    "english": "Good morning",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Magandang hapon",
+    "english": "Good afternoon",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Magandang gabi",
+    "english": "Good evening",
+    "category": "Basics"
+  },
+  {
+    "tagalog": "Ano?",
+    "english": "What?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Sino?",
+    "english": "Who?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Saan?",
+    "english": "Where?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Kailan?",
+    "english": "When?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Bakit?",
+    "english": "Why?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Paano?",
+    "english": "How?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Magkano?",
+    "english": "How much?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Ilan?",
+    "english": "How many?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Ano ito?",
+    "english": "What is this?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Ano iyon?",
+    "english": "What is that?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Nasaan ka?",
+    "english": "Where are you?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Saan ka pupunta?",
+    "english": "Where are you going?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Anong ginagawa mo?",
+    "english": "What are you doing?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Anong pangalan mo?",
+    "english": "What’s your name?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Taga-saan ka?",
+    "english": "Where are you from?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Ikaw?",
+    "english": "You? / How about you?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Anong oras?",
+    "english": "What time?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Anong oras na?",
+    "english": "What time is it?",
+    "category": "Questions"
+  },
+  {
+    "tagalog": "Ako si Mike",
+    "english": "I’m Mike",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Taga-England ako",
+    "english": "I’m from England",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Masaya akong makilala ka",
+    "english": "Nice to meet you",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Talaga?",
+    "english": "Really?",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Sigurado?",
+    "english": "Are you sure?",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Siyempre",
+    "english": "Of course",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Siguro",
+    "english": "Maybe / Probably",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Tama",
+    "english": "Correct",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Mali",
+    "english": "Wrong",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Okay lang",
+    "english": "It’s okay / No problem",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Wala lang",
+    "english": "Nothing / No particular reason",
+    "category": "Conversation"
+  },
+  {
+    "tagalog": "Alam ko",
+    "english": "I know",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Hindi ko alam",
+    "english": "I don’t know",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Naiintindihan ko",
+    "english": "I understand",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Hindi ko naiintindihan",
+    "english": "I don’t understand",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Pakiulit",
+    "english": "Please repeat",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Ulit",
+    "english": "Again",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Dahan-dahan",
+    "english": "Slowly",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Dahan-dahan lang",
+    "english": "Just slowly",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Sandali lang",
+    "english": "Just a moment",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Teka lang",
+    "english": "Wait a second",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Ano ang ibig sabihin?",
+    "english": "What does that mean?",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Marunong ka bang mag-English?",
+    "english": "Can you speak English?",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Kaunti lang",
+    "english": "Just a little",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Hindi masyado",
+    "english": "Not really / Not much",
+    "category": "Understanding"
+  },
+  {
+    "tagalog": "Ako",
+    "english": "I / Me",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Ikaw / Ka",
+    "english": "You",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Siya",
+    "english": "He / She",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Kami",
+    "english": "We — not including you",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Tayo",
+    "english": "We — including you",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Kayo",
+    "english": "You plural / polite you",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Sila",
+    "english": "They",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Ko",
+    "english": "My / Mine",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Mo",
+    "english": "Your / Yours",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Niya",
+    "english": "His / Hers",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Ito",
+    "english": "This",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Iyan",
+    "english": "That — near you",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Iyon",
+    "english": "That — over there",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Dito",
+    "english": "Here",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Diyan",
+    "english": "There",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Doon",
+    "english": "Over there",
+    "category": "Essentials"
+  },
+  {
+    "tagalog": "Gusto ko",
+    "english": "I want / I like",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Ayoko",
+    "english": "I don’t want / I don’t like",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Kailangan ko",
+    "english": "I need",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Gusto ko ito",
+    "english": "I like / want this",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Ayoko nito",
+    "english": "I don’t like / want this",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Pwede?",
+    "english": "Can I? / Is it allowed?",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Pwede ba?",
+    "english": "Is that okay?",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Pwede bang…?",
+    "english": "Can I / Could I…?",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Tulungan mo ako",
+    "english": "Help me",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Tara",
+    "english": "Let’s go",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Halika",
+    "english": "Come",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Tingnan mo",
+    "english": "Look",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Hintay",
+    "english": "Wait",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Bilis!",
+    "english": "Hurry!",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Kain tayo",
+    "english": "Let’s eat",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Inom tayo",
+    "english": "Let’s have a drink",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Uwi na ako",
+    "english": "I’m going home now",
+    "category": "Useful"
+  },
+  {
+    "tagalog": "Pagkain",
+    "english": "Food",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Tubig",
+    "english": "Water",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Kape",
+    "english": "Coffee",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Tsaa",
+    "english": "Tea",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Kanin",
+    "english": "Cooked rice",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Isda",
+    "english": "Fish",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Manok",
+    "english": "Chicken",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Baboy",
+    "english": "Pork / Pig",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Baka",
+    "english": "Beef / Cow",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Gulay",
+    "english": "Vegetables",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Prutas",
+    "english": "Fruit",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Masarap",
+    "english": "Delicious / Tasty",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Napakasarap",
+    "english": "Very delicious",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Gutom ako",
+    "english": "I’m hungry",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Uhaw ako",
+    "english": "I’m thirsty",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Isa pa",
+    "english": "One more",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Magkano lahat?",
+    "english": "How much altogether?",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "May menu ba kayo?",
+    "english": "Do you have a menu?",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Masarap ito",
+    "english": "This is delicious",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Hindi maanghang, please",
+    "english": "Not spicy, please",
+    "category": "Food & Drink"
+  },
+  {
+    "tagalog": "Kaliwa",
+    "english": "Left",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Kanan",
+    "english": "Right",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Diretso",
+    "english": "Straight ahead",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Malapit",
+    "english": "Near",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Malayo",
+    "english": "Far",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Dito na lang",
+    "english": "Here is fine / Drop me here",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Saan ang banyo?",
+    "english": "Where’s the toilet?",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Saan ang hotel?",
+    "english": "Where’s the hotel?",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Nasaan ang restaurant?",
+    "english": "Where is the restaurant?",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Saan ang taxi?",
+    "english": "Where is the taxi?",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Pakibaba ako dito",
+    "english": "Please drop me here",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Naliligaw ako",
+    "english": "I’m lost",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Nasaan tayo?",
+    "english": "Where are we?",
+    "category": "Travel"
+  },
+  {
+    "tagalog": "Ngayon",
+    "english": "Now",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Mamaya",
+    "english": "Later",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Bukas",
+    "english": "Tomorrow",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Kahapon",
+    "english": "Yesterday",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Umaga",
+    "english": "Morning",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Hapon",
+    "english": "Afternoon",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Gabi",
+    "english": "Evening / Night",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Isa",
+    "english": "One",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Dalawa",
+    "english": "Two",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Tatlo",
+    "english": "Three",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Apat",
+    "english": "Four",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Lima",
+    "english": "Five",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Anim",
+    "english": "Six",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Pito",
+    "english": "Seven",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Walo",
+    "english": "Eight",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Siyam",
+    "english": "Nine",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Sampu",
+    "english": "Ten",
+    "category": "Time & Numbers"
+  },
+  {
+    "tagalog": "Masaya ako",
+    "english": "I’m happy",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Malungkot ako",
+    "english": "I’m sad",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Pagod ako",
+    "english": "I’m tired",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Mainit",
+    "english": "Hot",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Malamig",
+    "english": "Cold",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Mabilis",
+    "english": "Fast",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Mabagal",
+    "english": "Slow",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Malaki",
+    "english": "Big",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Maliit",
+    "english": "Small",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Maganda",
+    "english": "Beautiful / Nice",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Gwapo",
+    "english": "Handsome",
+    "category": "Feelings"
+  },
+  {
+    "tagalog": "Ang ganda mo",
+    "english": "You’re beautiful",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Ang gwapo mo",
+    "english": "You’re handsome",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Gusto mo bang magkape?",
+    "english": "Would you like to get coffee?",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Kita tayo bukas",
+    "english": "See you tomorrow",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Mahal kita",
+    "english": "I love you",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Mahal na mahal kita",
+    "english": "I love you very much",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Mahal din kita",
+    "english": "I love you too",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Mahal mo ba ako?",
+    "english": "Do you love me?",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Oo, mahal kita",
+    "english": "Yes, I love you",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Miss na kita",
+    "english": "I miss you",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Gusto kitang makita",
+    "english": "I want to see you",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Gusto kitang makilala",
+    "english": "I’d like to get to know you",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Ang saya mo kasama",
+    "english": "You’re fun to be with",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Pwede ba kitang tawagan?",
+    "english": "Can I call you?",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Anong number mo?",
+    "english": "What’s your number?",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Mag-ingat ka",
+    "english": "Take care",
+    "category": "Social"
+  },
+  {
+    "tagalog": "Tulong!",
+    "english": "Help!",
+    "category": "Emergency"
+  },
+  {
+    "tagalog": "Kailangan ko ng doktor",
+    "english": "I need a doctor",
+    "category": "Emergency"
+  },
+  {
+    "tagalog": "Tumawag ng pulis",
+    "english": "Call the police",
+    "category": "Emergency"
+  },
+  {
+    "tagalog": "May problema",
+    "english": "There is a problem",
+    "category": "Emergency"
+  }
+]

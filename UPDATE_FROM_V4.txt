@@ -1,0 +1,8 @@
+UPDATE FROM V4
+1. Replace index.html, sw.js and app.webmanifest in GitHub.
+2. Replace your Cloudflare Worker code with cloudflare-worker.js and Deploy.
+3. Add ELEVENLABS_API_KEY as a Worker secret.
+4. Azure secrets are no longer used.
+5. Keep/use APP_TOKEN and ALLOWED_ORIGIN.
+6. Open the hosted app once in Safari while online.
+7. More > Realistic Filipino voice > enter Worker /speak URL > Load my voices.

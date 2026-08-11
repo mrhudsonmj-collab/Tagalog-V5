@@ -1,0 +1,100 @@
+TAGALOG TRAINER v5 — ELEVENLABS FREE REALISTIC VOICE
+
+This version replaces Azure with ElevenLabs.
+
+1) CREATE A FREE ELEVENLABS ACCOUNT
+- Sign up to ElevenLabs.
+- Create an API key.
+- Keep the API key private.
+
+2) CREATE AN AUTHENTIC FILIPINO VOICE
+ElevenLabs says accent/pronunciation are strongly influenced by the selected voice.
+For a free setup, use Voice Design:
+Voices > My Voices > Add a new voice > Voice Design
+
+Suggested female prompt:
+Warm native Filipina speaker from the Philippines, natural conversational
+Tagalog/Filipino accent, friendly everyday tone, clear pronunciation, relaxed
+natural pacing, not an announcer, not Americanised, suitable for teaching short
+everyday Tagalog phrases.
+
+Suggested male prompt:
+Warm native Filipino man from the Philippines, natural conversational
+Tagalog/Filipino accent, friendly everyday tone, clear pronunciation, relaxed
+natural pacing, not an announcer, not Americanised, suitable for teaching short
+everyday Tagalog phrases.
+
+Preview the options and SAVE the most natural one.
+
+3) SET UP / UPDATE THE CLOUDFLARE WORKER
+- Cloudflare > Workers & Pages > your Tagalog voice Worker.
+- Edit code.
+- Replace the old Azure Worker code with cloudflare-worker.js from this package.
+- Deploy.
+- Settings > Variables and Secrets:
+    ELEVENLABS_API_KEY = your ElevenLabs API key       [SECRET]
+    APP_TOKEN          = a long token/password you invent [SECRET]
+    ALLOWED_ORIGIN     = https://YOURNAME.github.io   [VARIABLE]
+- Do not put /tagalog-trainer/ on ALLOWED_ORIGIN.
+- Save/deploy.
+- Your app endpoint is:
+    https://YOUR-WORKER.workers.dev/speak
+
+4) UPDATE GITHUB PAGES
+Upload/replace:
+- index.html
+- sw.js
+- app.webmanifest
+Then commit and wait for GitHub Pages to redeploy.
+
+5) CONNECT THE IPHONE APP
+Tagalog Trainer > More > Realistic Filipino voice
+- Voice mode: ElevenLabs realistic voice — online
+- Voice service URL: https://YOUR-WORKER.workers.dev/speak
+- Private app token: same APP_TOKEN as Cloudflare
+- Tap: Load my voices
+- Choose the Filipino Voice Design voice you saved
+- Model:
+    Best quality — Multilingual v2  [recommended]
+    Economy — Flash v2.5            [uses fewer credits]
+- Tap: Test selected voice
+
+6) SLOW BUTTON
+The ElevenLabs API supports speech-speed control down to 0.70x.
+The app's Slow learner button uses 0.70x and has its own cached audio.
+
+7) CACHING
+The first generation of a phrase uses ElevenLabs credits.
+The same phrase + voice + model + speed is then cached locally on the iPhone,
+so repeat playback normally does not use another API request.
+
+8) IMPORTANT FREE-TIER DETAIL
+The free API does not provide full Voice Library access. Voice Design / My Voices
+is therefore the easiest free route to a voice deliberately designed with a
+Filipino accent.
+
+9) SECURITY
+Never put ELEVENLABS_API_KEY in GitHub or index.html.
+Keep it only in the Cloudflare Worker secret.
+The app token is excluded from exported Tagalog Trainer backups.
+
+10) ERRORS
+"ElevenLabs voice service is not configured yet"
+  Voice URL or APP_TOKEN is blank.
+
+"Invalid app token"
+  APP_TOKEN does not match Cloudflare.
+
+"Origin not allowed"
+  ALLOWED_ORIGIN does not match your GitHub Pages origin.
+
+"Could not load ElevenLabs voices"
+  Check ElevenLabs API key and Worker settings.
+
+"No usable voices found"
+  Save a Voice Design voice in ElevenLabs, then load again.
+
+"ElevenLabs free credits or request limit reached"
+  Free allowance is exhausted or temporarily rate-limited.
+
+In ElevenLabs mode the app deliberately does NOT fall back to the Apple voice.

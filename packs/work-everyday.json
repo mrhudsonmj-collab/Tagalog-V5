@@ -1,0 +1,82 @@
+[
+  {
+    "tagalog": "Nagtatrabaho ako",
+    "english": "I’m working",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Tapos na",
+    "english": "Finished / Done",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Hindi pa",
+    "english": "Not yet",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Mamaya na",
+    "english": "Later instead",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Sandali",
+    "english": "A moment",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Halika dito",
+    "english": "Come here",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Punta ka dito",
+    "english": "Come / go here",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Tingnan natin",
+    "english": "Let’s have a look",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "May tanong ako",
+    "english": "I have a question",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "May oras ka ba?",
+    "english": "Do you have time?",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Busy ka ba?",
+    "english": "Are you busy?",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Okay na",
+    "english": "It’s okay now / It’s done",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Ayusin natin",
+    "english": "Let’s sort it out",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Magaling",
+    "english": "Good / Skilled",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Magandang trabaho",
+    "english": "Good job",
+    "category": "Work & Everyday"
+  },
+  {
+    "tagalog": "Kita tayo bukas",
+    "english": "See you tomorrow",
+    "category": "Work & Everyday"
+  }
+]

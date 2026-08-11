@@ -1,0 +1,41 @@
+TAGALOG TRAINER v3.1 — SLOW BUTTON FIX
+
+WHAT WAS WRONG
+The previous Slow button used 0.65x. On iPhone voices that can sound very close
+to the normal 0.85x setting. The natural voice also needed a stronger learner-
+slow instruction.
+
+WHAT CHANGED
+- Slow button is now a fixed 0.45x on the device voice.
+- Natural voice gets a dedicated learnerSlow mode.
+- Natural slow audio is generated at 0.50 speed plus explicit slow-learning
+  pronunciation instructions.
+- Slow and normal natural audio use separate cache entries.
+- The app shows a "Slow learner pronunciation" message when the button is tapped.
+- Service-worker cache bumped so the update is fetched.
+
+IF YOU USE ONLY THE IPHONE VOICE
+Replace these two files in GitHub:
+  index.html
+  sw.js
+
+IF YOU USE THE NATURAL AI VOICE
+Replace these three files:
+  index.html
+  sw.js
+  cloudflare-worker.js
+
+After updating the Cloudflare Worker, redeploy it.
+
+ON IPHONE
+1. Commit the replacement files to GitHub.
+2. Wait for GitHub Pages to redeploy.
+3. Close Tagalog Trainer completely.
+4. Open it once in Safari while online, then reopen the Home Screen app.
+5. If an old cached version remains, remove the Home Screen icon and add the
+   hosted site to Home Screen again.
+
+TEST
+Open any card and compare:
+  Speak        = normal pronunciation
+  Slow 0.45x   = clearly slower learner pronunciation

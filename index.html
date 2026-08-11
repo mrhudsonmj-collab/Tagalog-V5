@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#2563eb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Tagalog">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="app.webmanifest">
+<title>Tagalog Trainer</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#0f172a;--muted:#64748b;--line:#dbe3ee;--accent:#2563eb;--accent2:#dbeafe;--good:#15803d;--goodbg:#dcfce7;--hard:#b45309;--hardbg:#ffedd5;--bad:#b91c1c;--badbg:#fee2e2;--shadow:0 8px 28px rgba(15,23,42,.08)}
+@media(prefers-color-scheme:dark){:root{--bg:#020617;--card:#0f172a;--text:#e5e7eb;--muted:#94a3b8;--line:#263247;--accent:#60a5fa;--accent2:#172554;--good:#4ade80;--goodbg:#052e16;--hard:#fbbf24;--hardbg:#451a03;--bad:#f87171;--badbg:#450a0a;--shadow:none}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}.app{max-width:760px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(94px + env(safe-area-inset-bottom))}h1{font-size:26px;margin:2px 0 4px}.sub{color:var(--muted);margin:0 0 12px;font-size:14px}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.online{font-size:12px;padding:5px 8px;border-radius:999px;background:var(--goodbg);color:var(--good);font-weight:700}.offline{background:var(--hardbg);color:var(--hard)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;box-shadow:var(--shadow)}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.spread{justify-content:space-between}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}.stat b{display:block;font-size:20px}.muted{color:var(--muted)}.small{font-size:12px}.badge{display:inline-block;background:var(--accent2);color:var(--accent);padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}button,input,select,textarea{font:inherit}button{border:0;border-radius:13px;padding:12px 14px;background:var(--accent);color:white;font-weight:750;cursor:pointer;min-height:44px}button.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}button.good{background:var(--good);color:white}button.hard{background:var(--hard);color:white}button.bad{background:var(--bad);color:white}button:disabled{opacity:.45;cursor:not-allowed}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:13px;padding:12px;background:var(--card);color:var(--text);min-height:44px}.flash{min-height:280px;display:flex;flex-direction:column;justify-content:center;text-align:center;position:relative;overflow:hidden}.prompt{font-size:14px;color:var(--muted);margin-bottom:8px}.tag{font-size:32px;font-weight:850;letter-spacing:-.02em}.eng{font-size:22px;margin-top:12px;color:var(--muted)}.hint{font-size:13px;color:var(--muted);margin-top:10px}.rating{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.rating button{padding:10px 6px}.progress{height:10px;border-radius:999px;background:var(--line);overflow:hidden}.progress>div{height:100%;background:var(--accent);width:0;transition:width .25s}.view{display:none}.view.active{display:block}.bottomnav{position:fixed;left:0;right:0;bottom:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--card) 93%,transparent);border-top:1px solid var(--line);backdrop-filter:blur(18px);z-index:20}.bottomnav .inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:5px}.bottomnav button{background:transparent;color:var(--muted);border-radius:12px;padding:7px 3px;min-height:48px;font-size:11px}.bottomnav button span{display:block;font-size:19px;line-height:20px;margin-bottom:2px}.bottomnav button.active{background:var(--accent2);color:var(--accent)}.question{font-size:24px;font-weight:850;margin:12px 0}.options{display:grid;gap:10px}.options button{text-align:left;background:var(--card);color:var(--text);border:1px solid var(--line)}.options button.correct{background:var(--goodbg);border-color:var(--good)}.options button.wrong{background:var(--badbg);border-color:var(--bad)}.answerfeedback{margin-top:12px;padding:12px;border-radius:12px;background:var(--accent2);display:none}.phrase{padding:12px 0;border-bottom:1px solid var(--line)}.phrase:last-child{border-bottom:0}.phrase b{font-size:17px}.iconbtn{min-width:44px;padding:8px 10px}.star{font-size:20px}.pack{border:1px solid var(--line);border-radius:14px;padding:13px;margin-top:10px}.pack h3{margin:0 0 4px;font-size:17px}.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--bg);padding:4px;border-radius:12px}.seg button{background:transparent;color:var(--muted);border-radius:9px;min-height:38px;padding:8px}.seg button.active{background:var(--card);color:var(--accent);box-shadow:0 1px 5px rgba(15,23,42,.08)}.toast{position:fixed;left:50%;bottom:calc(83px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#111827;color:#fff;padding:10px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:.2s;z-index:30;max-width:90%;text-align:center}.toast.show{opacity:1}.caught{text-align:center;padding:18px}.hidden{display:none!important}.sectiontitle{font-size:17px;margin:18px 0 8px}.installsteps{margin:8px 0 0;padding-left:20px;color:var(--muted)}.installsteps li{margin:6px 0}.dangerzone{border-color:color-mix(in srgb,var(--bad) 45%,var(--line))}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}.grid2,.grid3{grid-template-columns:1fr}.rating{grid-template-columns:1fr 1fr}.tag{font-size:29px}.eng{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topline"><div><h1>Tagalog Trainer</h1><p class="sub">Short daily sessions that build useful conversation.</p></div><span id="netBadge" class="online">Online</span></div>
+
+  <section id="learn" class="view active">
+    <div class="stats">
+      <div class="stat"><span class="small muted">Phrases</span><b id="phraseCount">0</b></div>
+      <div class="stat"><span class="small muted">Mastered</span><b id="masteredCount">0</b></div>
+      <div class="stat"><span class="small muted">Due</span><b id="dueCount">0</b></div>
+      <div class="stat"><span class="small muted">Today</span><b id="todayCount">0</b></div>
+    </div>
+    <div class="card">
+      <div class="row spread"><span class="small muted">Daily goal</span><span id="goalText" class="small muted">0 / 15</span></div>
+      <div class="progress" style="margin-top:8px"><div id="goalBar"></div></div>
+    </div>
+    <div class="card">
+      <div class="grid2">
+        <select id="learnCategory" aria-label="Learn category"></select>
+        <select id="learnDirection" aria-label="Learn direction"><option value="tl-en">Tagalog → English</option><option value="en-tl">English → Tagalog</option></select>
+      </div>
+    </div>
+    <div id="learnCard" class="card flash">
+      <span id="learnCat" class="badge"></span>
+      <div id="learnPrompt" class="prompt"></div>
+      <div id="learnFront" class="tag">Loading…</div>
+      <div id="learnBack" class="eng" hidden></div>
+      <div id="learnHint" class="hint"></div>
+      <div class="row" style="justify-content:center;margin-top:18px">
+        <button id="speakBtn" class="secondary">🔊 Speak</button>
+        <button id="slowSpeakBtn" class="secondary">🐢 Slow learner</button>
+        <button id="revealBtn">Reveal</button>
+      </div>
+    </div>
+    <div id="caughtUp" class="card caught hidden"><b>All caught up 🎉</b><p class="muted">Nothing is due right now.</p><button id="extraPractice">Do extra practice</button></div>
+    <div id="ratingButtons" class="rating">
+      <button id="againBtn" class="bad" disabled>Again<br><span class="small">5 min</span></button>
+      <button id="hardBtn" class="hard" disabled>Hard<br><span class="small">30 min</span></button>
+      <button id="goodBtn" class="good" disabled>Good<br><span class="small">next step</span></button>
+      <button id="easyBtn" disabled>Easy<br><span class="small">skip ahead</span></button>
+    </div>
+  </section>
+
+  <section id="quiz" class="view">
+    <div class="card">
+      <div class="grid2">
+        <select id="quizType"><option value="mc">Multiple choice</option><option value="type">Type the answer</option></select>
+        <select id="quizDirection"><option value="en-tl">English → Tagalog</option><option value="tl-en">Tagalog → English</option></select>
+      </div>
+      <div class="row spread" style="margin-top:14px"><span class="badge">10-question session</span><span id="quizScore" class="muted">0 / 0</span></div>
+      <div id="question" class="question">Tap Start</div>
+      <div id="options" class="options"></div>
+      <div id="typeWrap" class="hidden"><input id="typedAnswer" autocomplete="off" autocapitalize="none" placeholder="Type your answer"><button id="checkTyped" style="margin-top:10px;width:100%">Check answer</button></div>
+      <div id="answerFeedback" class="answerfeedback"></div>
+      <div class="row" style="margin-top:14px"><button id="quizNext">Start</button><button id="quizSpeak" class="secondary hidden">🔊 Hear answer</button></div>
+    </div>
+  </section>
+
+  <section id="phrases" class="view">
+    <div class="card">
+      <div class="grid2"><input id="search" placeholder="Search Tagalog or English"><select id="category"></select></div>
+      <label class="row small muted" style="margin-top:10px"><input id="favoritesOnly" type="checkbox" style="width:auto;min-height:auto"> Favorites only</label>
+      <div id="phraseList"></div>
+    </div>
+  </section>
+
+  <section id="packs" class="view">
+    <div class="card">
+      <div class="row spread"><div><b>Phrase packs</b><div class="small muted">Add new phrases without replacing your progress.</div></div><button id="refreshCatalog" class="secondary">Refresh</button></div>
+      <div id="packList"><p class="muted">Loading packs…</p></div>
+    </div>
+    <div class="card">
+      <b>Download from another URL</b><p class="small muted">Use a direct HTTPS link to a compatible JSON phrase pack.</p>
+      <input id="packUrl" placeholder="https://example.com/tagalog-pack.json"><button id="downloadPack" style="margin-top:10px;width:100%">Download pack</button>
+    </div>
+    <div class="card">
+      <b>Import a JSON file</b><input id="fileImport" type="file" accept=".json,application/json" style="margin-top:10px">
+    </div>
+  </section>
+
+  <section id="more" class="view">
+    <div class="card">
+      <b>Learning settings</b>
+      <label class="small muted">Daily goal</label><select id="dailyGoal" style="margin-top:5px"><option>10</option><option selected>15</option><option>20</option><option>30</option></select>
+      <label class="small muted" style="display:block;margin-top:12px">Speech speed: <span id="rateLabel">0.85×</span></label><input id="speechRate" type="range" min="0.7" max="1.1" step="0.05" value="0.85">
+      <label class="row small muted" style="margin-top:10px"><input id="autoSpeak" type="checkbox" style="width:auto;min-height:auto"> Automatically speak Tagalog after reveal</label>
+    </div>
+    <div class="card">
+      <div class="row spread"><div><b>Realistic Filipino voice</b><div class="small muted">Uses your free ElevenLabs account instead of the Apple system voice.</div></div><span id="voiceStatus" class="badge">Not connected</span></div>
+      <label class="small muted" style="display:block;margin-top:12px">Voice mode</label>
+      <select id="voiceMode" style="margin-top:5px">
+        <option value="elevenlabs">ElevenLabs realistic voice — online</option>
+        <option value="device">iPhone system voice — optional</option>
+      </select>
+
+      <div id="elevenVoiceSettings" style="margin-top:12px">
+        <label class="small muted">Voice service URL</label>
+        <input id="voiceEndpoint" type="url" inputmode="url" placeholder="https://your-worker.workers.dev/speak" style="margin-top:5px">
+
+        <label class="small muted" style="display:block;margin-top:12px">Private app token</label>
+        <input id="voiceToken" type="password" autocomplete="off" placeholder="Enter the APP_TOKEN you set in Cloudflare" style="margin-top:5px">
+
+        <div class="grid2" style="margin-top:10px">
+          <button id="loadElevenVoices" class="secondary">↻ Load my voices</button>
+          <button id="testElevenVoice" class="secondary">🔊 Test selected voice</button>
+        </div>
+
+        <label class="small muted" style="display:block;margin-top:12px">ElevenLabs voice</label>
+        <select id="elevenVoiceId" style="margin-top:5px">
+          <option value="">Connect, then tap “Load my voices”</option>
+        </select>
+
+        <label class="small muted" style="display:block;margin-top:12px">Speech model</label>
+        <select id="elevenModel" style="margin-top:5px">
+          <option value="eleven_multilingual_v2">Best quality — Multilingual v2</option>
+          <option value="eleven_flash_v2_5">Economy — Flash v2.5</option>
+        </select>
+
+        <div style="margin-top:12px;border:1px solid var(--line);border-radius:13px;padding:12px">
+          <b class="small">For the most authentic accent</b>
+          <p class="small muted" style="margin:6px 0 0">Create a <b>Voice Design</b> voice in ElevenLabs described as a native Filipino/Tagalog speaker, save it, then tap <b>Load my voices</b>. This avoids relying on an English-accented default voice.</p>
+        </div>
+
+        <p class="small muted" style="margin-bottom:0"><b>Important:</b> ElevenLabs mode never silently switches back to Apple. If the online voice is not connected, the app shows the actual error. Generated phrases are cached locally to reduce credit use.</p>
+      </div>
+    </div>
+    <div class="card">
+      <b>Add your own phrase</b>
+      <div class="grid2" style="margin-top:10px"><input id="customTagalog" placeholder="Tagalog"><input id="customEnglish" placeholder="English"></div>
+      <input id="customCategory" placeholder="Category (optional)" style="margin-top:10px"><button id="addCustom" style="margin-top:10px;width:100%">Add phrase</button>
+    </div>
+    <div class="card">
+      <b>Backup & transfer</b><p class="small muted">Export everything, including progress and favourites, then import it on another device.</p>
+      <div class="grid2"><button id="exportBackup">Export backup</button><label><input id="importBackup" type="file" accept=".json,application/json" style="display:none"><span class="fakebtn">Import backup</span></label></div>
+    </div>
+    <div class="card">
+      <b>Install on iPhone</b>
+      <ol class="installsteps"><li>Host this folder on an HTTPS website.</li><li>Open the site in Safari.</li><li>Tap <b>Share</b>.</li><li>Choose <b>Add to Home Screen</b>.</li></ol>
+      <p class="small muted">Once opened online, the core app works offline. New packs need an internet connection.</p>
+    </div>
+    <div class="card dangerzone">
+      <b>Reset</b><div class="grid2" style="margin-top:10px"><button id="resetProgress" class="secondary">Reset progress</button><button id="restoreStarter" class="bad">Restore starter phrases</button></div>
+    </div>
+    <p class="small muted" style="text-align:center">Tagalog Trainer v5.0 · Filipino Voice</p>
+  </section>
+</div>
+
+<nav class="bottomnav" aria-label="Main navigation"><div class="inner">
+  <button data-view="learn" class="active"><span>🧠</span>Learn</button>
+  <button data-view="quiz"><span>✅</span>Quiz</button>
+  <button data-view="phrases"><span>📖</span>Phrases</button>
+  <button data-view="packs"><span>⬇️</span>Packs</button>
+  <button data-view="more"><span>⚙️</span>More</button>
+</div></nav>
+<div id="toast" class="toast" aria-live="polite"></div>
+<style>.fakebtn{display:flex;align-items:center;justify-content:center;background:var(--accent);color:white;border-radius:13px;min-height:44px;font-weight:750;padding:12px 14px;cursor:pointer}</style>
+<script>
+const STARTER=[{"tagalog": "Kumusta?", "english": "Hello / How are you?", "category": "Basics"}, {"tagalog": "Kumusta ka?", "english": "How are you?", "category": "Basics"}, {"tagalog": "Mabuti", "english": "Good / Fine", "category": "Basics"}, {"tagalog": "Mabuti ako", "english": "I’m fine", "category": "Basics"}, {"tagalog": "Oo", "english": "Yes", "category": "Basics"}, {"tagalog": "Hindi", "english": "No / Not", "category": "Basics"}, {"tagalog": "Salamat", "english": "Thank you", "category": "Basics"}, {"tagalog": "Maraming salamat", "english": "Thank you very much", "category": "Basics"}, {"tagalog": "Walang anuman", "english": "You’re welcome", "category": "Basics"}, {"tagalog": "Pakiusap", "english": "Please", "category": "Basics"}, {"tagalog": "Pasensya na", "english": "Sorry", "category": "Basics"}, {"tagalog": "Paumanhin", "english": "Excuse me / Sorry", "category": "Basics"}, {"tagalog": "Po", "english": "Respectful word added to a sentence", "category": "Basics"}, {"tagalog": "Opo", "english": "Respectful yes", "category": "Basics"}, {"tagalog": "Sige", "english": "Okay / Go ahead", "category": "Basics"}, {"tagalog": "Ayos", "english": "Fine / Good / Sorted", "category": "Basics"}, {"tagalog": "Ayos lang", "english": "It’s okay", "category": "Basics"}, {"tagalog": "Ingat", "english": "Take care", "category": "Basics"}, {"tagalog": "Paalam", "english": "Goodbye", "category": "Basics"}, {"tagalog": "Magandang umaga", "english": "Good morning", "category": "Basics"}, {"tagalog": "Magandang hapon", "english": "Good afternoon", "category": "Basics"}, {"tagalog": "Magandang gabi", "english": "Good evening", "category": "Basics"}, {"tagalog": "Ano?", "english": "What?", "category": "Questions"}, {"tagalog": "Sino?", "english": "Who?", "category": "Questions"}, {"tagalog": "Saan?", "english": "Where?", "category": "Questions"}, {"tagalog": "Kailan?", "english": "When?", "category": "Questions"}, {"tagalog": "Bakit?", "english": "Why?", "category": "Questions"}, {"tagalog": "Paano?", "english": "How?", "category": "Questions"}, {"tagalog": "Magkano?", "english": "How much?", "category": "Questions"}, {"tagalog": "Ilan?", "english": "How many?", "category": "Questions"}, {"tagalog": "Ano ito?", "english": "What is this?", "category": "Questions"}, {"tagalog": "Ano iyon?", "english": "What is that?", "category": "Questions"}, {"tagalog": "Nasaan ka?", "english": "Where are you?", "category": "Questions"}, {"tagalog": "Saan ka pupunta?", "english": "Where are you going?", "category": "Questions"}, {"tagalog": "Anong ginagawa mo?", "english": "What are you doing?", "category": "Questions"}, {"tagalog": "Anong pangalan mo?", "english": "What’s your name?", "category": "Questions"}, {"tagalog": "Taga-saan ka?", "english": "Where are you from?", "category": "Questions"}, {"tagalog": "Ikaw?", "english": "You? / How about you?", "category": "Questions"}, {"tagalog": "Anong oras?", "english": "What time?", "category": "Questions"}, {"tagalog": "Anong oras na?", "english": "What time is it?", "category": "Questions"}, {"tagalog": "Ako si Mike", "english": "I’m Mike", "category": "Conversation"}, {"tagalog": "Taga-England ako", "english": "I’m from England", "category": "Conversation"}, {"tagalog": "Masaya akong makilala ka", "english": "Nice to meet you", "category": "Conversation"}, {"tagalog": "Talaga?", "english": "Really?", "category": "Conversation"}, {"tagalog": "Sigurado?", "english": "Are you sure?", "category": "Conversation"}, {"tagalog": "Siyempre", "english": "Of course", "category": "Conversation"}, {"tagalog": "Siguro", "english": "Maybe / Probably", "category": "Conversation"}, {"tagalog": "Tama", "english": "Correct", "category": "Conversation"}, {"tagalog": "Mali", "english": "Wrong", "category": "Conversation"}, {"tagalog": "Okay lang", "english": "It’s okay / No problem", "category": "Conversation"}, {"tagalog": "Wala lang", "english": "Nothing / No particular reason", "category": "Conversation"}, {"tagalog": "Alam ko", "english": "I know", "category": "Understanding"}, {"tagalog": "Hindi ko alam", "english": "I don’t know", "category": "Understanding"}, {"tagalog": "Naiintindihan ko", "english": "I understand", "category": "Understanding"}, {"tagalog": "Hindi ko naiintindihan", "english": "I don’t understand", "category": "Understanding"}, {"tagalog": "Pakiulit", "english": "Please repeat", "category": "Understanding"}, {"tagalog": "Ulit", "english": "Again", "category": "Understanding"}, {"tagalog": "Dahan-dahan", "english": "Slowly", "category": "Understanding"}, {"tagalog": "Dahan-dahan lang", "english": "Just slowly", "category": "Understanding"}, {"tagalog": "Sandali lang", "english": "Just a moment", "category": "Understanding"}, {"tagalog": "Teka lang", "english": "Wait a second", "category": "Understanding"}, {"tagalog": "Ano ang ibig sabihin?", "english": "What does that mean?", "category": "Understanding"}, {"tagalog": "Marunong ka bang mag-English?", "english": "Can you speak English?", "category": "Understanding"}, {"tagalog": "Kaunti lang", "english": "Just a little", "category": "Understanding"}, {"tagalog": "Hindi masyado", "english": "Not really / Not much", "category": "Understanding"}, {"tagalog": "Ako", "english": "I / Me", "category": "Essentials"}, {"tagalog": "Ikaw / Ka", "english": "You", "category": "Essentials"}, {"tagalog": "Siya", "english": "He / She", "category": "Essentials"}, {"tagalog": "Kami", "english": "We — not including you", "category": "Essentials"}, {"tagalog": "Tayo", "english": "We — including you", "category": "Essentials"}, {"tagalog": "Kayo", "english": "You plural / polite you", "category": "Essentials"}, {"tagalog": "Sila", "english": "They", "category": "Essentials"}, {"tagalog": "Ko", "english": "My / Mine", "category": "Essentials"}, {"tagalog": "Mo", "english": "Your / Yours", "category": "Essentials"}, {"tagalog": "Niya", "english": "His / Hers", "category": "Essentials"}, {"tagalog": "Ito", "english": "This", "category": "Essentials"}, {"tagalog": "Iyan", "english": "That — near you", "category": "Essentials"}, {"tagalog": "Iyon", "english": "That — over there", "category": "Essentials"}, {"tagalog": "Dito", "english": "Here", "category": "Essentials"}, {"tagalog": "Diyan", "english": "There", "category": "Essentials"}, {"tagalog": "Doon", "english": "Over there", "category": "Essentials"}, {"tagalog": "Gusto ko", "english": "I want / I like", "category": "Useful"}, {"tagalog": "Ayoko", "english": "I don’t want / I don’t like", "category": "Useful"}, {"tagalog": "Kailangan ko", "english": "I need", "category": "Useful"}, {"tagalog": "Gusto ko ito", "english": "I like / want this", "category": "Useful"}, {"tagalog": "Ayoko nito", "english": "I don’t like / want this", "category": "Useful"}, {"tagalog": "Pwede?", "english": "Can I? / Is it allowed?", "category": "Useful"}, {"tagalog": "Pwede ba?", "english": "Is that okay?", "category": "Useful"}, {"tagalog": "Pwede bang…?", "english": "Can I / Could I…?", "category": "Useful"}, {"tagalog": "Tulungan mo ako", "english": "Help me", "category": "Useful"}, {"tagalog": "Tara", "english": "Let’s go", "category": "Useful"}, {"tagalog": "Halika", "english": "Come", "category": "Useful"}, {"tagalog": "Tingnan mo", "english": "Look", "category": "Useful"}, {"tagalog": "Hintay", "english": "Wait", "category": "Useful"}, {"tagalog": "Bilis!", "english": "Hurry!", "category": "Useful"}, {"tagalog": "Kain tayo", "english": "Let’s eat", "category": "Useful"}, {"tagalog": "Inom tayo", "english": "Let’s have a drink", "category": "Useful"}, {"tagalog": "Uwi na ako", "english": "I’m going home now", "category": "Useful"}, {"tagalog": "Pagkain", "english": "Food", "category": "Food & Drink"}, {"tagalog": "Tubig", "english": "Water", "category": "Food & Drink"}, {"tagalog": "Kape", "english": "Coffee", "category": "Food & Drink"}, {"tagalog": "Tsaa", "english": "Tea", "category": "Food & Drink"}, {"tagalog": "Kanin", "english": "Cooked rice", "category": "Food & Drink"}, {"tagalog": "Isda", "english": "Fish", "category": "Food & Drink"}, {"tagalog": "Manok", "english": "Chicken", "category": "Food & Drink"}, {"tagalog": "Baboy", "english": "Pork / Pig", "category": "Food & Drink"}, {"tagalog": "Baka", "english": "Beef / Cow", "category": "Food & Drink"}, {"tagalog": "Gulay", "english": "Vegetables", "category": "Food & Drink"}, {"tagalog": "Prutas", "english": "Fruit", "category": "Food & Drink"}, {"tagalog": "Masarap", "english": "Delicious / Tasty", "category": "Food & Drink"}, {"tagalog": "Napakasarap", "english": "Very delicious", "category": "Food & Drink"}, {"tagalog": "Gutom ako", "english": "I’m hungry", "category": "Food & Drink"}, {"tagalog": "Uhaw ako", "english": "I’m thirsty", "category": "Food & Drink"}, {"tagalog": "Isa pa", "english": "One more", "category": "Food & Drink"}, {"tagalog": "Magkano lahat?", "english": "How much altogether?", "category": "Food & Drink"}, {"tagalog": "May menu ba kayo?", "english": "Do you have a menu?", "category": "Food & Drink"}, {"tagalog": "Masarap ito", "english": "This is delicious", "category": "Food & Drink"}, {"tagalog": "Hindi maanghang, please", "english": "Not spicy, please", "category": "Food & Drink"}, {"tagalog": "Kaliwa", "english": "Left", "category": "Travel"}, {"tagalog": "Kanan", "english": "Right", "category": "Travel"}, {"tagalog": "Diretso", "english": "Straight ahead", "category": "Travel"}, {"tagalog": "Malapit", "english": "Near", "category": "Travel"}, {"tagalog": "Malayo", "english": "Far", "category": "Travel"}, {"tagalog": "Dito na lang", "english": "Here is fine / Drop me here", "category": "Travel"}, {"tagalog": "Saan ang banyo?", "english": "Where’s the toilet?", "category": "Travel"}, {"tagalog": "Saan ang hotel?", "english": "Where’s the hotel?", "category": "Travel"}, {"tagalog": "Nasaan ang restaurant?", "english": "Where is the restaurant?", "category": "Travel"}, {"tagalog": "Saan ang taxi?", "english": "Where is the taxi?", "category": "Travel"}, {"tagalog": "Pakibaba ako dito", "english": "Please drop me here", "category": "Travel"}, {"tagalog": "Naliligaw ako", "english": "I’m lost", "category": "Travel"}, {"tagalog": "Nasaan tayo?", "english": "Where are we?", "category": "Travel"}, {"tagalog": "Ngayon", "english": "Now", "category": "Time & Numbers"}, {"tagalog": "Mamaya", "english": "Later", "category": "Time & Numbers"}, {"tagalog": "Bukas", "english": "Tomorrow", "category": "Time & Numbers"}, {"tagalog": "Kahapon", "english": "Yesterday", "category": "Time & Numbers"}, {"tagalog": "Umaga", "english": "Morning", "category": "Time & Numbers"}, {"tagalog": "Hapon", "english": "Afternoon", "category": "Time & Numbers"}, {"tagalog": "Gabi", "english": "Evening / Night", "category": "Time & Numbers"}, {"tagalog": "Isa", "english": "One", "category": "Time & Numbers"}, {"tagalog": "Dalawa", "english": "Two", "category": "Time & Numbers"}, {"tagalog": "Tatlo", "english": "Three", "category": "Time & Numbers"}, {"tagalog": "Apat", "english": "Four", "category": "Time & Numbers"}, {"tagalog": "Lima", "english": "Five", "category": "Time & Numbers"}, {"tagalog": "Anim", "english": "Six", "category": "Time & Numbers"}, {"tagalog": "Pito", "english": "Seven", "category": "Time & Numbers"}, {"tagalog": "Walo", "english": "Eight", "category": "Time & Numbers"}, {"tagalog": "Siyam", "english": "Nine", "category": "Time & Numbers"}, {"tagalog": "Sampu", "english": "Ten", "category": "Time & Numbers"}, {"tagalog": "Masaya ako", "english": "I’m happy", "category": "Feelings"}, {"tagalog": "Malungkot ako", "english": "I’m sad", "category": "Feelings"}, {"tagalog": "Pagod ako", "english": "I’m tired", "category": "Feelings"}, {"tagalog": "Mainit", "english": "Hot", "category": "Feelings"}, {"tagalog": "Malamig", "english": "Cold", "category": "Feelings"}, {"tagalog": "Mabilis", "english": "Fast", "category": "Feelings"}, {"tagalog": "Mabagal", "english": "Slow", "category": "Feelings"}, {"tagalog": "Malaki", "english": "Big", "category": "Feelings"}, {"tagalog": "Maliit", "english": "Small", "category": "Feelings"}, {"tagalog": "Maganda", "english": "Beautiful / Nice", "category": "Feelings"}, {"tagalog": "Gwapo", "english": "Handsome", "category": "Feelings"}, {"tagalog": "Ang ganda mo", "english": "You’re beautiful", "category": "Social"}, {"tagalog": "Ang gwapo mo", "english": "You’re handsome", "category": "Social"}, {"tagalog": "Gusto mo bang magkape?", "english": "Would you like to get coffee?", "category": "Social"}, {"tagalog": "Kita tayo bukas", "english": "See you tomorrow", "category": "Social"}, {"tagalog": "Mahal kita", "english": "I love you", "category": "Social"}, {"tagalog": "Mahal na mahal kita", "english": "I love you very much", "category": "Social"}, {"tagalog": "Mahal din kita", "english": "I love you too", "category": "Social"}, {"tagalog": "Mahal mo ba ako?", "english": "Do you love me?", "category": "Social"}, {"tagalog": "Oo, mahal kita", "english": "Yes, I love you", "category": "Social"}, {"tagalog": "Miss na kita", "english": "I miss you", "category": "Social"}, {"tagalog": "Gusto kitang makita", "english": "I want to see you", "category": "Social"}, {"tagalog": "Gusto kitang makilala", "english": "I’d like to get to know you", "category": "Social"}, {"tagalog": "Ang saya mo kasama", "english": "You’re fun to be with", "category": "Social"}, {"tagalog": "Pwede ba kitang tawagan?", "english": "Can I call you?", "category": "Social"}, {"tagalog": "Anong number mo?", "english": "What’s your number?", "category": "Social"}, {"tagalog": "Mag-ingat ka", "english": "Take care", "category": "Social"}, {"tagalog": "Tulong!", "english": "Help!", "category": "Emergency"}, {"tagalog": "Kailangan ko ng doktor", "english": "I need a doctor", "category": "Emergency"}, {"tagalog": "Tumawag ng pulis", "english": "Call the police", "category": "Emergency"}, {"tagalog": "May problema", "english": "There is a problem", "category": "Emergency"}];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const STORE={phrases:'tl_v2_phrases',progress:'tl_v2_progress',favorites:'tl_v2_favorites',settings:'tl_v2_settings',daily:'tl_v2_daily'};
+let phrases=load(STORE.phrases,STARTER), progress=load(STORE.progress,{}), favorites=new Set(load(STORE.favorites,[]));
+let settings=Object.assign({dailyGoal:15,speechRate:.85,autoSpeak:false,voiceMode:'elevenlabs',elevenVoiceId:'',elevenVoiceName:'',elevenModel:'eleven_multilingual_v2',voiceEndpoint:'',voiceToken:''},load(STORE.settings,{}));
+let daily=load(STORE.daily,{date:todayKey(),count:0}); if(daily.date!==todayKey()) daily={date:todayKey(),count:0};
+let sessionDeck=[], sessionPos=0, extraMode=false, quiz={n:0,right:0,current:null,locked:false};
+function load(k,f){try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch{return f}}
+function persist(){localStorage.setItem(STORE.phrases,JSON.stringify(phrases));localStorage.setItem(STORE.progress,JSON.stringify(progress));localStorage.setItem(STORE.favorites,JSON.stringify([...favorites]));localStorage.setItem(STORE.settings,JSON.stringify(settings));localStorage.setItem(STORE.daily,JSON.stringify(daily))}
+function todayKey(){const d=new Date();return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`}
+function keyFor(p){return (p.tagalog+'|'+p.english).toLocaleLowerCase()}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._to);t._to=setTimeout(()=>t.classList.remove('show'),2000)}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function normalize(s){return String(s).toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,' ').trim()}
+function updateNetwork(){const on=navigator.onLine;$('#netBadge').textContent=on?'Online':'Offline';$('#netBadge').className=on?'online':'online offline'}
+window.addEventListener('online',updateNetwork);window.addEventListener('offline',updateNetwork);updateNetwork();
+function navTo(id){$$('.view').forEach(v=>v.classList.toggle('active',v.id===id));$$('.bottomnav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='phrases')renderPhrasebook();if(id==='packs')loadCatalog();window.scrollTo({top:0,behavior:'smooth'})}
+$$('.bottomnav button').forEach(b=>b.addEventListener('click',()=>navTo(b.dataset.view)));
+function filteredLearnPhrases(){const c=$('#learnCategory').value;return phrases.filter(p=>!c||p.category===c)}
+function dueList(){const now=Date.now(), base=filteredLearnPhrases();return base.filter(p=>!progress[keyFor(p)]||progress[keyFor(p)].due<=now)}
+function rebuildDeck(forceExtra=false){extraMode=forceExtra;let src=forceExtra?filteredLearnPhrases():dueList();sessionDeck=shuffle(src);sessionPos=0;renderLearn()}
+function currentCard(){return sessionDeck[sessionPos]||null}
+function updateStats(){const now=Date.now();$('#phraseCount').textContent=phrases.length;$('#masteredCount').textContent=phrases.filter(p=>(progress[keyFor(p)]?.level||0)>=5).length;$('#dueCount').textContent=phrases.filter(p=>!progress[keyFor(p)]||progress[keyFor(p)].due<=now).length;$('#todayCount').textContent=daily.count;$('#goalText').textContent=`${daily.count} / ${settings.dailyGoal}`;$('#goalBar').style.width=Math.min(100,(daily.count/settings.dailyGoal)*100)+'%'}
+function renderLearn(){updateStats();if(!sessionDeck.length){const dl=dueList();if(dl.length){sessionDeck=shuffle(dl);sessionPos=0}else{$('#learnCard').classList.add('hidden');$('#ratingButtons').classList.add('hidden');$('#caughtUp').classList.remove('hidden');return}}const p=currentCard();if(!p){sessionDeck=[];return renderLearn()}$('#caughtUp').classList.add('hidden');$('#learnCard').classList.remove('hidden');$('#ratingButtons').classList.remove('hidden');const dir=$('#learnDirection').value;$('#learnCat').textContent=p.category||'General';$('#learnPrompt').textContent=dir==='tl-en'?'What does this mean?':'How do you say this in Tagalog?';$('#learnFront').textContent=dir==='tl-en'?p.tagalog:p.english;$('#learnBack').textContent=dir==='tl-en'?p.english:p.tagalog;$('#learnBack').hidden=true;$('#learnHint').textContent='';['againBtn','hardBtn','goodBtn','easyBtn'].forEach(id=>$('#'+id).disabled=true)}
+function reveal(){const p=currentCard();if(!p)return;$('#learnBack').hidden=false;const lvl=progress[keyFor(p)]?.level||0;$('#learnHint').textContent=lvl>=4?'You’ve seen this several times — aim to recall it before revealing.':'';['againBtn','hardBtn','goodBtn','easyBtn'].forEach(id=>$('#'+id).disabled=false);if(settings.autoSpeak)speak(p.tagalog,settings.speechRate)}
+const GOOD_DAYS=[0,1,3,7,14,30,90,180];
+function grade(kind){const p=currentCard();if(!p)return;const k=keyFor(p), old=progress[k]||{level:0,due:0};let level=old.level||0, due;
+ if(kind==='again'){level=Math.max(0,level-1);due=Date.now()+5*60000}
+ if(kind==='hard'){due=Date.now()+30*60000}
+ if(kind==='good'){level=Math.min(7,level+1);due=Date.now()+GOOD_DAYS[level]*86400000}
+ if(kind==='easy'){level=Math.min(7,level+2);due=Date.now()+GOOD_DAYS[level]*86400000}
+ progress[k]={level,due,last:Date.now(),result:kind};daily.count++;persist();sessionPos++;if(sessionPos>=sessionDeck.length){sessionDeck=[]}renderLearn()}
+let naturalAudioContext=null;
+function deviceSpeak(text,rate=settings.speechRate){
+  if(!('speechSynthesis'in window)){toast('Speech is not supported on this device');return}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='fil-PH';u.rate=rate;
+  const voices=speechSynthesis.getVoices();
+  const filipino=voices.filter(v=>/^(fil|tl)(-|_)/i.test(v.lang)||/filip|tagalog/i.test(v.name+' '+v.lang));
+  const enhanced=filipino.find(v=>/premium|enhanced|siri|natural/i.test(v.name))||filipino[0];
+  if(enhanced)u.voice=enhanced;
+  speechSynthesis.speak(u);
+}
+async function hashText(s){
+  if(!crypto?.subtle)return btoa(unescape(encodeURIComponent(s))).replace(/[^a-z0-9]/gi,'').slice(0,80);
+  const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return [...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function playNaturalBlob(blob){
+  try{
+    if(!naturalAudioContext)naturalAudioContext=new (window.AudioContext||window.webkitAudioContext)();
+    if(naturalAudioContext.state==='suspended')await naturalAudioContext.resume();
+    const buf=await blob.arrayBuffer();
+    const decoded=await naturalAudioContext.decodeAudioData(buf.slice(0));
+    const src=naturalAudioContext.createBufferSource();
+    src.buffer=decoded;src.connect(naturalAudioContext.destination);src.start(0);
+  }catch(e){
+    const url=URL.createObjectURL(blob),a=new Audio(url);
+    a.onended=()=>URL.revokeObjectURL(url);
+    await a.play();
+  }
+}
+async function elevenSpeak(text,rate=settings.speechRate,learnerSlow=false){
+  const endpoint=(settings.voiceEndpoint||'').trim();
+  const token=(settings.voiceToken||'').trim();
+  const voiceId=(settings.elevenVoiceId||'').trim();
+  const model=settings.elevenModel||'eleven_multilingual_v2';
+
+  if(!endpoint||!token)throw new Error('ElevenLabs voice service is not configured yet');
+  if(!voiceId)throw new Error('No ElevenLabs voice selected — tap Load my voices first');
+
+  const speed=learnerSlow ? 0.70 : Math.max(0.70,Math.min(1.20,Number(rate)||0.90));
+  const pace=learnerSlow ? 'learner-slow' : 'normal';
+  const cacheName='tagalog-elevenlabs-tts-v1';
+  const cacheId=await hashText(`${voiceId}|${model}|${pace}|${speed.toFixed(2)}|${text}`);
+  const cacheKey=new Request(`${location.origin}${location.pathname.replace(/[^/]*$/,'')}__eleven_tts_cache__/${cacheId}.mp3`);
+  let blob=null;
+
+  if('caches' in window){
+    const cache=await caches.open(cacheName);
+    const hit=await cache.match(cacheKey);
+    if(hit)blob=await hit.blob();
+  }
+
+  if(!blob){
+    if(!navigator.onLine)throw new Error('This phrase has not been cached yet and you are offline');
+    const r=await fetch(endpoint,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Tagalog-Token':token},
+      body:JSON.stringify({text,voiceId,model,speed,learnerSlow})
+    });
+    if(!r.ok){
+      let msg=`ElevenLabs voice service error ${r.status}`;
+      try{const j=await r.json();if(j.error)msg=j.error}catch{}
+      throw new Error(msg);
+    }
+    blob=await r.blob();
+    if('caches' in window){
+      const cache=await caches.open(cacheName);
+      await cache.put(cacheKey,new Response(blob,{headers:{'Content-Type':blob.type||'audio/mpeg'}}));
+    }
+  }
+  await playNaturalBlob(blob);
+}
+
+async function speak(text,rate=settings.speechRate,learnerSlow=false){
+  if(settings.voiceMode==='elevenlabs'){
+    try{
+      setVoiceStatus(learnerSlow?'ElevenLabs · Slow':'ElevenLabs');
+      await elevenSpeak(text,rate,learnerSlow);
+      return;
+    }catch(e){
+      setVoiceStatus('Voice error');
+      toast(e.message);
+      return;
+    }
+  }
+  setVoiceStatus('Device');
+  deviceSpeak(text,learnerSlow?0.45:rate);
+}
+
+function setVoiceStatus(label){
+  const el=$('#voiceStatus');if(!el)return;
+  el.textContent=label|| (settings.voiceMode==='elevenlabs'?'ElevenLabs':'Device');
+}
+$('#revealBtn').addEventListener('click',reveal);$('#speakBtn').addEventListener('click',()=>currentCard()&&speak(currentCard().tagalog));$('#slowSpeakBtn').addEventListener('click',()=>{
+  const p=currentCard();if(!p)return;
+  toast('Slow learner pronunciation');
+  speak(p.tagalog,0.45,true);
+});$('#againBtn').addEventListener('click',()=>grade('again'));$('#hardBtn').addEventListener('click',()=>grade('hard'));$('#goodBtn').addEventListener('click',()=>grade('good'));$('#easyBtn').addEventListener('click',()=>grade('easy'));$('#extraPractice').addEventListener('click',()=>rebuildDeck(true));
+$('#learnCategory').addEventListener('change',()=>rebuildDeck(extraMode));$('#learnDirection').addEventListener('change',renderLearn);
+function refreshCategories(){const cats=[...new Set(phrases.map(p=>p.category||'General'))].sort();const opts='<option value="">All categories</option>'+cats.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');$('#category').innerHTML=opts;$('#learnCategory').innerHTML=opts}
+function renderPhrasebook(){const q=$('#search').value.trim().toLocaleLowerCase(), c=$('#category').value, favOnly=$('#favoritesOnly').checked;const list=phrases.filter(p=>(!c||p.category===c)&&(!favOnly||favorites.has(keyFor(p)))&&(!q||(p.tagalog+' '+p.english).toLocaleLowerCase().includes(q)));$('#phraseList').innerHTML=list.length?'':'<p class="muted">No phrases match.</p>';list.forEach(p=>{const k=keyFor(p),d=document.createElement('div');d.className='phrase';d.innerHTML=`<div class="row spread"><div style="flex:1;min-width:180px"><b>${esc(p.tagalog)}</b><div>${esc(p.english)}</div><span class="small muted">${esc(p.category||'General')}</span></div><button class="secondary iconbtn star" aria-label="Favourite">${favorites.has(k)?'★':'☆'}</button><button class="secondary iconbtn speaker" aria-label="Speak">🔊</button></div>`;d.querySelector('.speaker').addEventListener('click',()=>speak(p.tagalog));d.querySelector('.star').addEventListener('click',e=>{favorites.has(k)?favorites.delete(k):favorites.add(k);persist();e.currentTarget.textContent=favorites.has(k)?'★':'☆'});$('#phraseList').appendChild(d)})}
+$('#search').addEventListener('input',renderPhrasebook);$('#category').addEventListener('change',renderPhrasebook);$('#favoritesOnly').addEventListener('change',renderPhrasebook);
+function quizPool(){return phrases}
+function startQuizQuestion(){if(quiz.n>=10){$('#question').textContent=`Session complete: ${quiz.right}/10`;$('#options').innerHTML='';$('#typeWrap').classList.add('hidden');$('#answerFeedback').style.display='block';$('#answerFeedback').textContent=quiz.right>=8?'Excellent — strong recall.':quiz.right>=6?'Good work — review the missed phrases next.':'Keep going — short daily sessions will improve recall.';$('#quizNext').textContent='Start new session';quiz={n:0,right:0,current:null,locked:false};$('#quizScore').textContent='0 / 0';return}
+ const pool=quizPool();const p=pool[Math.floor(Math.random()*pool.length)],dir=$('#quizDirection').value,type=$('#quizType').value;const q=dir==='en-tl'?p.english:p.tagalog, ans=dir==='en-tl'?p.tagalog:p.english, field=dir==='en-tl'?'tagalog':'english';quiz.current={p,ans,field};quiz.locked=false;$('#question').textContent=q;$('#answerFeedback').style.display='none';$('#quizSpeak').classList.add('hidden');$('#options').innerHTML='';$('#typedAnswer').value='';
+ if(type==='mc'){$('#typeWrap').classList.add('hidden');const dis=shuffle(pool.filter(x=>x[field]!==ans)).slice(0,3).map(x=>x[field]);shuffle([ans,...dis]).forEach(o=>{const b=document.createElement('button');b.textContent=o;b.addEventListener('click',()=>scoreQuiz(o===ans,o,b));$('#options').appendChild(b)})}else{$('#typeWrap').classList.remove('hidden');setTimeout(()=>$('#typedAnswer').focus(),50)}$('#quizNext').textContent='Next'}
+function scoreQuiz(correct,given,button){if(quiz.locked)return;quiz.locked=true;quiz.n++;if(correct)quiz.right++;const {p,ans}=quiz.current;if(button){button.classList.add(correct?'correct':'wrong');[...$('#options').children].forEach(x=>{if(x.textContent===ans)x.classList.add('correct')})}$('#answerFeedback').style.display='block';$('#answerFeedback').innerHTML=correct?'<b>Correct ✓</b>':`<b>Answer:</b> ${esc(ans)}`;$('#quizSpeak').classList.remove('hidden');const k=keyFor(p),old=progress[k]||{level:0};progress[k]={level:correct?Math.max(old.level||0,1):0,due:Date.now()+(correct?86400000:5*60000),last:Date.now(),result:correct?'quiz-good':'quiz-miss'};daily.count++;persist();updateStats();$('#quizScore').textContent=`${quiz.right} / ${quiz.n}`}
+$('#quizNext').addEventListener('click',startQuizQuestion);$('#checkTyped').addEventListener('click',()=>{if(!quiz.current)return;scoreQuiz(normalize($('#typedAnswer').value)===normalize(quiz.current.ans),$('#typedAnswer').value)});$('#typedAnswer').addEventListener('keydown',e=>{if(e.key==='Enter')$('#checkTyped').click()});$('#quizSpeak').addEventListener('click',()=>quiz.current&&speak(quiz.current.p.tagalog));$('#quizType').addEventListener('change',()=>{quiz={n:0,right:0,current:null,locked:false};$('#quizScore').textContent='0 / 0';$('#question').textContent='Tap Start';$('#options').innerHTML='';$('#typeWrap').classList.add('hidden')});
+function validatePack(data){if(!Array.isArray(data))throw new Error('Pack must be a JSON array');const clean=data.filter(x=>x&&typeof x.tagalog==='string'&&typeof x.english==='string').map(x=>({tagalog:x.tagalog.trim(),english:x.english.trim(),category:String(x.category||'Downloaded').trim()}));if(!clean.length)throw new Error('No valid phrases found');return clean}
+function addPack(data){const pack=validatePack(data),seen=new Set(phrases.map(keyFor));let added=0;pack.forEach(p=>{if(!seen.has(keyFor(p))){phrases.push(p);seen.add(keyFor(p));added++}});persist();refreshCategories();rebuildDeck(false);renderPhrasebook();toast(`Added ${added} new phrase${added===1?'':'s'}`);return added}
+async function loadCatalog(){const host=$('#packList');host.innerHTML='<p class="muted">Loading packs…</p>';try{const r=await fetch('./packs/catalog.json',{cache:'no-store'});if(!r.ok)throw new Error('catalog unavailable');renderCatalog(await r.json())}catch{host.innerHTML='<p class="muted">Pack catalog is unavailable offline. Core phrases still work.</p>'}}
+function renderCatalog(cat){const host=$('#packList');host.innerHTML='';cat.forEach(p=>{const d=document.createElement('div');d.className='pack';d.innerHTML=`<div class="row spread"><div><h3>${esc(p.name)}</h3><div class="small muted">${esc(p.description)} · ${p.count} phrases</div></div><button>Download</button></div>`;d.querySelector('button').addEventListener('click',async e=>{const btn=e.currentTarget;btn.disabled=true;btn.textContent='Loading…';try{const r=await fetch(p.file,{cache:'no-store'});if(!r.ok)throw new Error('download failed');const n=addPack(await r.json());btn.textContent=n?'Added':'Already added'}catch(err){toast('Could not download pack');btn.textContent='Retry';btn.disabled=false}});host.appendChild(d)})}
+$('#refreshCatalog').addEventListener('click',loadCatalog);$('#downloadPack').addEventListener('click',async()=>{const url=$('#packUrl').value.trim();if(!url)return toast('Enter a pack URL first');try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`HTTP ${r.status}`);addPack(await r.json())}catch(e){toast('Could not download that pack')}});$('#fileImport').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{addPack(JSON.parse(await f.text()))}catch(err){toast(err.message)}e.target.value=''});
+$('#dailyGoal').value=String(settings.dailyGoal);$('#speechRate').value=String(settings.speechRate);$('#rateLabel').textContent=settings.speechRate.toFixed(2)+'×';$('#autoSpeak').checked=settings.autoSpeak;
+if(settings.voiceMode==='natural'||settings.voiceMode==='filipino')settings.voiceMode='elevenlabs';
+$('#voiceMode').value=settings.voiceMode||'elevenlabs';
+$('#voiceEndpoint').value=settings.voiceEndpoint||'';
+$('#voiceToken').value=settings.voiceToken||'';
+$('#elevenModel').value=settings.elevenModel||'eleven_multilingual_v2';
+
+function renderVoiceSettings(){
+  const online=$('#voiceMode').value==='elevenlabs';
+  $('#elevenVoiceSettings').style.display=online?'block':'none';
+  setVoiceStatus(online?(settings.elevenVoiceId?'ElevenLabs':'Not connected'):'Device');
+}
+renderVoiceSettings();
+
+function saveVoiceConnectionFields(){
+  settings.voiceEndpoint=$('#voiceEndpoint').value.trim();
+  settings.voiceToken=$('#voiceToken').value.trim();
+  settings.elevenModel=$('#elevenModel').value;
+  persist();
+}
+
+function voiceLooksFilipino(v){
+  const text=[
+    v.name||'',v.category||'',v.description||'',
+    JSON.stringify(v.labels||{}),JSON.stringify(v.verified_languages||[])
+  ].join(' ').toLowerCase();
+  return /filip|tagalog|philipp|manila|pinoy|fil-ph/.test(text);
+}
+
+function populateVoiceSelect(voices){
+  const sel=$('#elevenVoiceId');
+  sel.innerHTML='';
+  if(!voices.length){
+    sel.innerHTML='<option value="">No usable voices found in this ElevenLabs account</option>';
+    settings.elevenVoiceId='';settings.elevenVoiceName='';persist();
+    return;
+  }
+  voices.sort((a,b)=>(Number(voiceLooksFilipino(b))-Number(voiceLooksFilipino(a)))||String(a.name).localeCompare(String(b.name)));
+  voices.forEach(v=>{
+    const o=document.createElement('option');
+    o.value=v.voice_id;
+    const marker=voiceLooksFilipino(v)?'🇵🇭 ':'';
+    const type=v.category?` · ${v.category}`:'';
+    o.textContent=`${marker}${v.name||'Unnamed voice'}${type}`;
+    sel.appendChild(o);
+  });
+  const wanted=settings.elevenVoiceId;
+  if(wanted&&voices.some(v=>v.voice_id===wanted))sel.value=wanted;
+  else sel.selectedIndex=0;
+  settings.elevenVoiceId=sel.value;
+  settings.elevenVoiceName=sel.options[sel.selectedIndex]?.textContent||'';
+  persist();
+}
+
+async function loadElevenVoices(){
+  saveVoiceConnectionFields();
+  const endpoint=settings.voiceEndpoint,token=settings.voiceToken;
+  if(!endpoint||!token)return toast('Enter the voice service URL and private app token first');
+  const base=endpoint.replace(/\/speak\/?$/,'');
+  const btn=$('#loadElevenVoices');
+  btn.disabled=true;btn.textContent='Loading…';setVoiceStatus('Connecting…');
+  try{
+    const r=await fetch(base+'/voices',{headers:{'X-Tagalog-Token':token},cache:'no-store'});
+    let data=null;try{data=await r.json()}catch{}
+    if(!r.ok)throw new Error(data?.error||`Voice list error ${r.status}`);
+    populateVoiceSelect(Array.isArray(data.voices)?data.voices:[]);
+    setVoiceStatus(settings.elevenVoiceId?'ElevenLabs':'No voices');
+    toast(settings.elevenVoiceId?'Voices loaded':'No voices found');
+  }catch(e){
+    setVoiceStatus('Voice error');
+    toast(e.message);
+  }finally{
+    btn.disabled=false;btn.textContent='↻ Load my voices';
+  }
+}
+
+$('#dailyGoal').addEventListener('change',e=>{settings.dailyGoal=Number(e.target.value);persist();updateStats()});
+$('#speechRate').addEventListener('input',e=>{settings.speechRate=Number(e.target.value);$('#rateLabel').textContent=settings.speechRate.toFixed(2)+'×';persist()});
+$('#autoSpeak').addEventListener('change',e=>{settings.autoSpeak=e.target.checked;persist()});
+$('#voiceMode').addEventListener('change',e=>{settings.voiceMode=e.target.value;persist();renderVoiceSettings()});
+$('#voiceEndpoint').addEventListener('change',saveVoiceConnectionFields);
+$('#voiceToken').addEventListener('change',saveVoiceConnectionFields);
+$('#elevenModel').addEventListener('change',e=>{settings.elevenModel=e.target.value;persist()});
+$('#elevenVoiceId').addEventListener('change',e=>{
+  settings.elevenVoiceId=e.target.value;
+  settings.elevenVoiceName=e.target.options[e.target.selectedIndex]?.textContent||'';
+  persist();setVoiceStatus('ElevenLabs');
+});
+$('#loadElevenVoices').addEventListener('click',loadElevenVoices);
+$('#testElevenVoice').addEventListener('click',async()=>{
+  saveVoiceConnectionFields();
+  if(!$('#elevenVoiceId').value)return toast('Load and select an ElevenLabs voice first');
+  settings.elevenVoiceId=$('#elevenVoiceId').value;
+  settings.elevenVoiceName=$('#elevenVoiceId').options[$('#elevenVoiceId').selectedIndex]?.textContent||'';
+  settings.voiceMode='elevenlabs';$('#voiceMode').value='elevenlabs';
+  persist();renderVoiceSettings();toast('Loading realistic voice…');
+  await speak('Mahal kita',settings.speechRate);
+});
+
+if(settings.elevenVoiceId){
+  const sel=$('#elevenVoiceId');
+  sel.innerHTML='';
+  const o=document.createElement('option');
+  o.value=settings.elevenVoiceId;o.textContent=settings.elevenVoiceName||'Saved ElevenLabs voice';
+  sel.appendChild(o);
+}
+$('#addCustom').addEventListener('click',()=>{const t=$('#customTagalog').value.trim(),e=$('#customEnglish').value.trim(),c=$('#customCategory').value.trim()||'My Phrases';if(!t||!e)return toast('Enter both Tagalog and English');const p={tagalog:t,english:e,category:c};if(phrases.some(x=>keyFor(x)===keyFor(p)))return toast('That phrase is already in the app');phrases.push(p);persist();refreshCategories();rebuildDeck(false);$('#customTagalog').value=$('#customEnglish').value=$('#customCategory').value='';toast('Phrase added')});
+function downloadJson(obj,name){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+$('#exportBackup').addEventListener('click',()=>{const safeSettings={...settings};delete safeSettings.voiceToken;downloadJson({version:5,exported:new Date().toISOString(),phrases,progress,favorites:[...favorites],settings:safeSettings,daily},`tagalog-trainer-backup-${todayKey()}.json`)});$('#importBackup').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const b=JSON.parse(await f.text());if(!Array.isArray(b.phrases))throw new Error('Invalid backup');phrases=b.phrases;progress=b.progress||{};favorites=new Set(b.favorites||[]);settings=Object.assign(settings,b.settings||{});daily=b.daily||daily;persist();location.reload()}catch{toast('Invalid backup file')}});
+$('#resetProgress').addEventListener('click',()=>{if(!confirm('Reset all learning progress? Your phrases will stay.'))return;progress={};daily={date:todayKey(),count:0};persist();rebuildDeck(false);toast('Progress reset')});$('#restoreStarter').addEventListener('click',()=>{if(!confirm('Restore the starter phrase list? Custom/downloaded phrases will be removed.'))return;phrases=STARTER;progress={};favorites=new Set();daily={date:todayKey(),count:0};persist();location.reload()});
+refreshCategories();rebuildDeck(false);renderPhrasebook();updateStats();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>
