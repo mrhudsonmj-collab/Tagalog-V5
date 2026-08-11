@@ -162,7 +162,7 @@
     <div class="card dangerzone">
       <b>Reset</b><div class="grid2" style="margin-top:10px"><button id="resetProgress" class="secondary">Reset progress</button><button id="restoreStarter" class="bad">Restore starter phrases</button></div>
     </div>
-    <p class="small muted" style="text-align:center">Tagalog Trainer v5.2.0 · Filipino Voice</p>
+    <p class="small muted" style="text-align:center">Tagalog Trainer v5.3.0 · Filipino Voice</p>
   </section>
 </div>
 
@@ -388,7 +388,7 @@ async function loadElevenVoices(){
   btn.disabled=true;btn.textContent='Loading…';setVoiceStatus('Connecting…');
   try{
     const voiceUrl=base+'/voices';
-    const r=await fetch(voiceUrl,{headers:{'X-Tagalog-Token':token},cache:'no-store'});
+    const r=await fetch(voiceUrl,{mode:'cors',headers:{'X-Tagalog-Token':token},cache:'no-store'});
     const raw=await r.text();
     let data=null;
     if(raw){
@@ -438,7 +438,7 @@ $('#checkVoiceConnection').addEventListener('click',async()=>{
   diag.textContent='Checking '+url+' …'; console.log('Tagalog Trainer voice health URL:', url);
   setVoiceStatus('Checking…');
   try{
-    const r=await fetch(url,{headers:{'X-Tagalog-Token':token},cache:'no-store'});
+    const r=await fetch(url,{mode:'cors',headers:{'X-Tagalog-Token':token},cache:'no-store'});
     const raw=await r.text();
     let data=null;try{data=JSON.parse(raw)}catch{}
     if(!r.ok){
@@ -456,9 +456,13 @@ $('#checkVoiceConnection').addEventListener('click',async()=>{
       throw new Error('Unexpected health response: '+raw.slice(0,160));
     }
   }catch(e){
-    diag.textContent='❌ '+e.message;
+    const msg=(e && e.message) ? e.message : String(e);
+    const friendly = /Failed to fetch|Load failed|NetworkError|fetch/i.test(msg)
+      ? 'Browser blocked or could not reach the Cloudflare Worker. Check ALLOWED_ORIGIN and that the Worker is deployed.'
+      : msg;
+    diag.textContent='❌ '+friendly;
     setVoiceStatus('Voice error');
-    toast(e.message);
+    toast(friendly);
   }
 });
 
@@ -485,6 +489,14 @@ function downloadJson(obj,name){const blob=new Blob([JSON.stringify(obj,null,2)]
 $('#exportBackup').addEventListener('click',()=>{const safeSettings={...settings};delete safeSettings.voiceToken;downloadJson({version:5,exported:new Date().toISOString(),phrases,progress,favorites:[...favorites],settings:safeSettings,daily},`tagalog-trainer-backup-${todayKey()}.json`)});$('#importBackup').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const b=JSON.parse(await f.text());if(!Array.isArray(b.phrases))throw new Error('Invalid backup');phrases=b.phrases;progress=b.progress||{};favorites=new Set(b.favorites||[]);settings=Object.assign(settings,b.settings||{});daily=b.daily||daily;persist();location.reload()}catch{toast('Invalid backup file')}});
 $('#resetProgress').addEventListener('click',()=>{if(!confirm('Reset all learning progress? Your phrases will stay.'))return;progress={};daily={date:todayKey(),count:0};persist();rebuildDeck(false);toast('Progress reset')});$('#restoreStarter').addEventListener('click',()=>{if(!confirm('Restore the starter phrase list? Custom/downloaded phrases will be removed.'))return;phrases=STARTER;progress={};favorites=new Set();daily={date:todayKey(),count:0};persist();location.reload()});
 refreshCategories();rebuildDeck(false);renderPhrasebook();updateStats();
-if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+  navigator.serviceWorker.register('./sw.js').then(reg=>reg.update()).catch(()=>{});
+  let reloading=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(reloading)return;
+    reloading=true;
+    location.reload();
+  });
+}
 </script>
 </body></html>

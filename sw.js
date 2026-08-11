@@ -1,12 +1,38 @@
-const CACHE='tagalog-trainer-v52-elevenlabs';
+const CACHE='tagalog-trainer-v53-elevenlabs';
 const CORE=['./','./index.html','./app.webmanifest','./apple-touch-icon.png','./icon-192.png','./icon-512.png','./phrases.json'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
   if(e.request.method!=='GET')return;
   const url=new URL(e.request.url);
+
+  // IMPORTANT: Never intercept cross-origin API requests.
+  // Cloudflare / ElevenLabs requests must go directly to the network so
+  // CORS and API errors are returned honestly instead of being replaced
+  // by the cached Tagalog Trainer HTML page.
+  if(url.origin!==self.location.origin)return;
+
   if(url.pathname.endsWith('/packs/catalog.json')||url.pathname.endsWith('packs/catalog.json')){
-    e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)));return;
+    e.respondWith(
+      fetch(e.request)
+        .then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r})
+        .catch(()=>caches.match(e.request))
+    );
+    return;
   }
-  e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(r=>{if(r.ok&&url.origin===location.origin){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy))}return r}).catch(()=>caches.match('./index.html'))));
+
+  e.respondWith(
+    caches.match(e.request).then(cached=>
+      cached ||
+      fetch(e.request)
+        .then(r=>{
+          if(r.ok){
+            const copy=r.clone();
+            caches.open(CACHE).then(c=>c.put(e.request,copy));
+          }
+          return r;
+        })
+        .catch(()=>caches.match('./index.html'))
+    )
+  );
 });
