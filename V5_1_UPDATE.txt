@@ -1,0 +1,27 @@
+TAGALOG TRAINER v5.1 — CONNECTION DIAGNOSTICS
+
+This fixes the "null is not an object" error in v5.
+
+Replace these files in GitHub:
+- index.html
+- sw.js
+- app.webmanifest
+
+Cloudflare Worker code and secrets do not need changing if already configured.
+
+After GitHub Pages redeploys:
+1. Open the hosted GitHub Pages app in Safari.
+2. More > Realistic Filipino voice.
+3. Voice service URL:
+   https://tagalogvoice.mrhudsonmj.workers.dev/speak
+4. Private app token:
+   the exact APP_TOKEN stored in Cloudflare.
+5. Tap "Check connection".
+6. If it says Worker connected to ElevenLabs, tap "Load my voices".
+7. Select your saved voice and test it.
+
+NOTE:
+Opening the workers.dev address directly in a browser can show
+{"error":"Origin not allowed"}.
+That is expected because a direct browser navigation has no allowed
+GitHub Pages Origin header. Test from the Tagalog Trainer GitHub Pages app.

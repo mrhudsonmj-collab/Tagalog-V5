@@ -1,0 +1,34 @@
+TAGALOG TRAINER v5.2 — FIXED WORKER ADDRESS
+
+This version permanently sets the voice service to:
+
+https://tagalogvoice.mrhudsonmj.workers.dev/speak
+
+You no longer need to type or edit the Voice service URL.
+
+UPDATE GITHUB
+Replace:
+- index.html
+- sw.js
+- app.webmanifest
+
+Cloudflare does NOT need changing.
+
+THEN
+1. Wait for GitHub Pages to redeploy.
+2. Open the GitHub Pages version in Safari while online.
+3. More > Realistic Filipino voice.
+4. Enter only your APP_TOKEN in Private app token.
+5. Tap Check connection.
+6. It should check:
+   https://tagalogvoice.mrhudsonmj.workers.dev/health
+7. Then tap Load my voices.
+8. Select your saved ElevenLabs voice.
+9. Test selected voice.
+
+If an old Home Screen copy persists:
+- close the Home Screen app,
+- open the GitHub Pages URL once in Safari,
+- refresh,
+- then reopen the Home Screen app.
+If necessary, remove and re-add the Home Screen icon.

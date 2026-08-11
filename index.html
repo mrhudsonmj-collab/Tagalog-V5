@@ -113,7 +113,8 @@
 
       <div id="elevenVoiceSettings" style="margin-top:12px">
         <label class="small muted">Voice service URL</label>
-        <input id="voiceEndpoint" type="url" inputmode="url" placeholder="https://your-worker.workers.dev/speak" style="margin-top:5px">
+        <input id="voiceEndpoint" type="url" value="https://tagalogvoice.mrhudsonmj.workers.dev/speak" readonly style="margin-top:5px;opacity:.85">
+        <div class="small muted" style="margin-top:5px">Fixed to your Cloudflare Worker so the app cannot accidentally use the GitHub Pages address.</div>
 
         <label class="small muted" style="display:block;margin-top:12px">Private app token</label>
         <input id="voiceToken" type="password" autocomplete="off" placeholder="Enter the APP_TOKEN you set in Cloudflare" style="margin-top:5px">
@@ -161,7 +162,7 @@
     <div class="card dangerzone">
       <b>Reset</b><div class="grid2" style="margin-top:10px"><button id="resetProgress" class="secondary">Reset progress</button><button id="restoreStarter" class="bad">Restore starter phrases</button></div>
     </div>
-    <p class="small muted" style="text-align:center">Tagalog Trainer v5.1.0 · Filipino Voice</p>
+    <p class="small muted" style="text-align:center">Tagalog Trainer v5.2.0 · Filipino Voice</p>
   </section>
 </div>
 
@@ -180,6 +181,7 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const STORE={phrases:'tl_v2_phrases',progress:'tl_v2_progress',favorites:'tl_v2_favorites',settings:'tl_v2_settings',daily:'tl_v2_daily'};
 let phrases=load(STORE.phrases,STARTER), progress=load(STORE.progress,{}), favorites=new Set(load(STORE.favorites,[]));
 let settings=Object.assign({dailyGoal:15,speechRate:.85,autoSpeak:false,voiceMode:'elevenlabs',elevenVoiceId:'',elevenVoiceName:'',elevenModel:'eleven_multilingual_v2',voiceEndpoint:'',voiceToken:''},load(STORE.settings,{}));
+settings.voiceEndpoint='https://tagalogvoice.mrhudsonmj.workers.dev/speak';
 let daily=load(STORE.daily,{date:todayKey(),count:0}); if(daily.date!==todayKey()) daily={date:todayKey(),count:0};
 let sessionDeck=[], sessionPos=0, extraMode=false, quiz={n:0,right:0,current:null,locked:false};
 function load(k,f){try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch{return f}}
@@ -325,7 +327,7 @@ $('#refreshCatalog').addEventListener('click',loadCatalog);$('#downloadPack').ad
 $('#dailyGoal').value=String(settings.dailyGoal);$('#speechRate').value=String(settings.speechRate);$('#rateLabel').textContent=settings.speechRate.toFixed(2)+'×';$('#autoSpeak').checked=settings.autoSpeak;
 if(settings.voiceMode==='natural'||settings.voiceMode==='filipino')settings.voiceMode='elevenlabs';
 $('#voiceMode').value=settings.voiceMode||'elevenlabs';
-$('#voiceEndpoint').value=settings.voiceEndpoint||'';
+settings.voiceEndpoint='https://tagalogvoice.mrhudsonmj.workers.dev/speak';$('#voiceEndpoint').value='https://tagalogvoice.mrhudsonmj.workers.dev/speak';
 $('#voiceToken').value=settings.voiceToken||'';
 $('#elevenModel').value=settings.elevenModel||'eleven_multilingual_v2';
 
@@ -337,7 +339,8 @@ function renderVoiceSettings(){
 renderVoiceSettings();
 
 function saveVoiceConnectionFields(){
-  settings.voiceEndpoint=$('#voiceEndpoint').value.trim();
+  settings.voiceEndpoint='https://tagalogvoice.mrhudsonmj.workers.dev/speak';
+  $('#voiceEndpoint').value='https://tagalogvoice.mrhudsonmj.workers.dev/speak';
   settings.voiceToken=$('#voiceToken').value.trim();
   settings.elevenModel=$('#elevenModel').value;
   persist();
@@ -432,7 +435,7 @@ $('#checkVoiceConnection').addEventListener('click',async()=>{
   }
   const base=endpoint.replace(/\/speak\/?$/,'');
   const url=base+'/health';
-  diag.textContent='Checking '+url+' …';
+  diag.textContent='Checking '+url+' …'; console.log('Tagalog Trainer voice health URL:', url);
   setVoiceStatus('Checking…');
   try{
     const r=await fetch(url,{headers:{'X-Tagalog-Token':token},cache:'no-store'});
@@ -447,6 +450,9 @@ $('#checkVoiceConnection').addEventListener('click',async()=>{
       setVoiceStatus('Connected');
       toast('Voice connection OK');
     }else{
+      if(/^\s*<!doctype html|^\s*<html/i.test(raw)){
+        throw new Error('Received a webpage instead of the Cloudflare voice service. Expected: '+url);
+      }
       throw new Error('Unexpected health response: '+raw.slice(0,160));
     }
   }catch(e){
